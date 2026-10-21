@@ -31,7 +31,7 @@ export const Route = createFileRoute("/app/$slug")({
 function Detail() {
   const { app } = Route.useLoaderData();
   const { t, lang } = useApp();
-  const faq = lang === "ru"
+  const faq: [string, string][] = lang === "ru"
     ? [[`Безопасно ли скачивать ${app.name}?`, "Да, ссылки ведут на официальные релизы GitHub разработчика."], [`${app.name} бесплатный?`, `Да, это свободное ПО под лицензией ${app.license}.`]]
     : [[`Is ${app.name} safe to download?`, "Yes, links point to the developer's official GitHub releases."], [`Is ${app.name} free?`, `Yes, it's free software under ${app.license}.`]];
   const schema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) };
