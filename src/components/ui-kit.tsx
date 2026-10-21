@@ -117,7 +117,7 @@ export function Shell({ children }: { children: ReactNode }) {
 
       <main className="mx-auto max-w-5xl px-3">{children}</main>
 
-      <div className="fixed inset-x-0 bottom-16 z-30 px-3 md:hidden"><AdBox label="Sticky Bottom Ad" className="h-12 bg-card" /></div>
+      <div className="fixed inset-x-0 bottom-16 z-30 px-3 md:hidden"><div className="rounded-xl bg-background"><AdBox label="Sticky Bottom Ad" className="h-12" /></div></div>
       <nav className="fixed inset-x-0 bottom-0 z-40 grid h-16 grid-cols-4 border-t bg-background/95 backdrop-blur md:hidden">
         {nav.map(({ to, icon: I, k }) => {
           const active = to === "/" ? path === "/" : path.startsWith(to);
